@@ -1,0 +1,114 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as m;
+
+
+.login-contenido {
+
+
+
+    @include m.grid(1, 2rem);
+
+
+
+    @include m.tablet {
+        @include m.grid(2, 2rem);
+    }
+
+    .menu {
+
+
+
+        @include m.boton-index(v.$blanco, v.$negro);
+
+
+
+    }
+
+    .menu {
+
+        display: flex;
+        justify-content: space-around;
+        opacity: 0.7;
+
+        a {
+            color: inherit;
+            /* toma el color del contenedor padre */
+            //font-weight: 400;
+
+        }
+
+        &:hover {
+            transform: scale(1.1);
+
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        i {
+            margin-right: 2rem;
+        }
+
+
+    }
+
+
+}
+
+.login {
+
+    display: flex;
+    justify-content: center;
+    background-image: url(../../public/img/botana_2.jpeg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+
+
+    @include m.tablet {
+
+
+
+        justify-content: center;
+        background-image: url(../../public/img/botana_1.jpeg);
+        background-size: cover;
+        background-position: center;
+
+
+
+    }
+}
+
+.section {
+    background-color: v.$cafe;
+
+
+}
+
+.frame {
+
+    @include m.grid(1,2rem);
+    justify-items: center;
+
+    iframe {
+
+          margin: 1rem 0;
+          
+
+        width: 350px;
+         height: 350px;
+       
+
+         @include m.tablet {
+            margin: 3rem 0;
+            width: 800px;
+            height: 500px;
+        }
+
+        @include m.desktop{
+            margin: 3rem 0;
+            width: 1000px;
+            height: 500px;
+            
+        }
+    }
+}

@@ -1,0 +1,12 @@
+@use '../base/variables' as v;
+
+.cont{
+    background-color: v.$amarillo;
+    
+
+    .jj{
+        color: v.$negro;
+        font-size: 1rem;
+
+    }
+}

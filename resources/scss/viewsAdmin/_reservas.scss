@@ -1,0 +1,21 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as m;
+
+
+
+.table-reservas{
+     overflow-x: auto;
+     margin: 3rem 0;
+   
+    text-align: center;
+    th{
+        color: v.$blanco;
+         background-color: v.$negro;
+    }
+
+    td{
+         color: v.$negro;
+         background-color: v.$blanco;
+
+    }
+}

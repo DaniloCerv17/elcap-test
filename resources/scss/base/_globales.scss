@@ -1,0 +1,104 @@
+@use 'variables' as v;
+
+
+//reset HTML 1rem = 10px
+/*Esta configuración de CSS en el elemento html es común 
+en proyectos modernos, ya que proporciona un control efectivo
+ sobre el diseño y mejora la usabilidad al facilitar el uso de 
+ unidades rem*/
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+    scroll-padding-top: 0rem;
+}
+
+//BOX-MODEL
+/*Exactamente, al utilizar box-sizing: border-box;
+ puedes agregar margin o padding a una imagen (o a cualquier otro elemento)
+ sin que su ancho o alto total se incremente más allá de los valores que especifiques.*/
+
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+
+body {
+    font-family: v.$fuente_principal;
+    font-optical-sizing: auto;
+    font-style: normal;
+    color: v.$negro;
+    font-size: 2rem;
+    line-height: 1.8;
+    background-color: v.$random
+}
+
+p {
+    color: v.$negro;
+    line-height: 1.5;
+}
+
+.contenedor {
+    width: 95%;
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+.h1-principal {
+    background-color: v.$verde;
+    width: 50%;
+    margin: 2rem auto;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1,
+h2,
+h3 {
+
+    font-weight: 300;
+    text-align: center;
+
+}
+
+h1 {
+    font-size: 3.8rem;
+    // font-size: 4rem;
+}
+
+h2 {
+    font-size: 3.4rem;
+    // font-size: 4.6rem;
+}
+
+h3 {
+    font-size: 3rem;
+    // font-size: 6rem;
+    // text-align: center;
+}
+
+h4 {
+    font-size: 2.6rem;
+}
+
+img {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+body>section {
+    padding: 10rem 0
+}
+
+.contenedor-2 {
+    width: 95%;
+    min-width: 50rem;
+    margin: 0 auto;
+}

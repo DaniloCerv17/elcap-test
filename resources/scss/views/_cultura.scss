@@ -1,0 +1,38 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as m;
+
+
+.cultura-div {
+
+    @include m.grid(1, 1rem);
+    margin-bottom: 3rem;
+
+    h1, p{
+        text-align: center;
+        color: v.$negro;
+    }
+
+   
+
+    .cultura-contenido {
+        background-color: v.$cafe2;
+        margin-top: 2rem;
+        border: 1px solid v.$cafe2;
+        border-radius: 8px;
+
+
+        // img{
+        //     max-width: 80%;
+        // }
+
+
+    }
+
+
+
+
+    @include m.tablet {
+        @include m.grid(2, 1rem);
+    }
+
+}

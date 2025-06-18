@@ -1,0 +1,104 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as m;
+
+
+
+
+ .header {
+     .img-fondo {
+         display: flex;
+         justify-content: center;
+         background-image: url(../../public/img/Fondo_cap.png);
+         height: 40rem;
+         background-size: cover;
+         background-position: center center;
+
+         @include m.tablet {
+             height: 20rem;
+         }
+        
+     }
+
+     .img-center {
+         max-width: 20rem;
+     }
+
+
+
+    }
+     .navegacion {
+         flex-direction: column;
+         display: flex;
+         align-items: center;
+         background-color: v.$cafe;
+         padding: 2rem 0;
+
+         a {
+
+             margin-bottom: 2rem;
+//             margin-left: 7rem;
+            font-size: 2rem;
+             font-weight: v.$bold;
+             color: v.$blanco;
+
+            
+
+             i {
+                 margin-right: 0.3rem;
+             }
+
+             &:hover {
+                 transform: scale(1.1);
+                 color: v.$amarilloF;
+                 transition: transform 0.3s ease, color 0.3s ease;
+             }
+         }
+
+         @include m.tablet {
+             flex-direction: row;
+             justify-content: space-around;
+
+             a {
+                 margin: 0;
+             }
+
+         }
+
+
+
+     }
+ 
+
+
+
+ .img-fondo {
+
+     flex-direction: column;
+     align-items: center;
+    
+  
+     .texto-img {
+      
+    
+
+         h1 {
+             font-size: 3rem;
+             font-weight: 400;
+         }
+
+         span {
+             font-size: 4rem;
+             font-weight: v.$bold;
+
+         }
+     }
+
+     @include m.tablet{
+         flex-direction: row;
+         align-items: center;
+       
+         
+    
+     }
+
+ }

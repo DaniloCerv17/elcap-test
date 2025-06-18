@@ -1,0 +1,59 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as m;
+
+
+
+.bg-nosotros {
+    background-color: v.$blanco;
+    margin: 4rem 0;
+    padding: 3rem;
+
+    p{
+        color: v.$negro;
+    }
+
+}
+
+.nosotros {
+
+
+    @include m.grid(1, 2rem);
+    justify-items: center;
+    align-items:center ;
+
+    p {
+        text-align: center;
+        color: v.$negro;
+    }
+
+    h1{
+        color: v.$negro;
+    }
+
+    img {
+
+       
+        max-width: 50rem;
+        min-width: 30rem;
+
+    }
+
+    .im2 {
+        grid-column: 1;
+        grid-row: 4;
+
+    }
+
+    @include m.tablet {
+        @include m.grid(2, 2rem);
+
+        .im2 {
+            grid-column: 1;
+            grid-row: 2;
+
+        }
+
+
+    }
+
+}

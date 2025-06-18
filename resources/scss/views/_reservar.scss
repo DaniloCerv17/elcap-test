@@ -1,0 +1,96 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as m;
+
+
+
+
+
+.form {
+    @include m.grid(1, 3rem);
+    color: v.$blanco;
+    background-color: v.$cafe2;
+    padding: 0 3rem;
+    margin: 2rem 0;
+
+    
+      
+
+
+    h3,h4,
+    p {
+        text-align: center;
+        color: v.$negro;
+        
+    }
+
+      img {
+           
+            max-width: 50rem;
+            min-width: 30rem;
+
+        }
+
+
+    .campo {
+        display: flex;
+        margin-bottom: 2rem;
+        align-items: center;
+        color: v.$random;
+        
+
+        label {
+            
+            flex: 0 0 10rem;
+        }
+
+        input {
+            
+            flex: 1;
+            border: none;
+            padding: calc(v.$separacion / 4);
+            border-radius: 1rem;
+            background-color: v.$gris;
+
+            &:disabled {
+                background-color: lighten(v.$negro, 30%);
+                color: v.$blanco;
+                cursor: not-allowed;
+
+            }
+        }
+
+
+    }
+
+
+    .boton {
+        @include m.boton(v.$random, v.$blanco);
+    }
+
+    @include m.tablet {
+
+        @include m.grid(2, 3rem);
+        align-items: center;
+
+        h4 {
+            text-align: end;
+        }
+
+
+
+    }
+
+}
+
+.form {
+
+    .info-reservar {
+        @include m.grid(1, 2rem);
+
+        padding-bottom: 3rem;
+        
+
+       
+
+    }
+}
