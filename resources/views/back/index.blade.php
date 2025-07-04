@@ -4,7 +4,7 @@
 
     <div class="contenedor">
         <div class="admin-categorias">
-            <a class="cat-inf" href="">
+            <a class="cat-inf" href="{{ route('comidas.index') }}">
                 <img src="{{asset('img/dish-fork.png')}}" alt="img">
                 <p>COMIDAS</p>
             </a>
@@ -37,7 +37,7 @@
 
         <a class="pages" href="{{ route('back.reservas') }}">RESERVAS</a>
 
-        <a class="pages" href="{{ route('back.cultura') }}">CULTURA</a>
+        <a class="pages" href="{{ route('publicacion.index') }}">CULTURA</a>
 
     </div>
 </x-app-layout>

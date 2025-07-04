@@ -11,17 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('reservas', function (Blueprint $table) {
+        Schema::create('publicaciones', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre', 30);
-            $table->string('apellido', 50);
-            $table->string('telefono', 15);
-            $table->string('email')->nullable();
-            $table->integer('numPersonas');
+            $table->string('titulo', 50);
+            $table->string('slug', 80)->unique();
+            $table->text('contenido');
+            $table->string('imagen')->nullable();
             $table->date('fecha');
             $table->time('hora');
-            $table->boolean('is_validated')->default(false);
-            $table->string('token_validacion', 64)->nullable()->unique();
+            $table->boolean('is_active')->default(false);
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('reservas');
+        Schema::dropIfExists('publicaciones');
     }
 };

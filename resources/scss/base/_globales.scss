@@ -33,12 +33,20 @@ body {
     color: v.$negro;
     font-size: 2rem;
     line-height: 1.8;
-    background-color: v.$random
+    background-color: v.$random;
+
+     &.overflow-hidden {
+        overflow: hidden;
+    }
+
+   
+   
 }
 
 p {
     color: v.$negro;
     line-height: 1.5;
+    
 }
 
 .contenedor {

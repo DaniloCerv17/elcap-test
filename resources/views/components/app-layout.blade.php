@@ -14,6 +14,7 @@
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous"> 
      -->
     @vite('resources/scss/app.scss')
+     @vite('resources/js/app.js')
 </head>
 
 <body>
@@ -36,7 +37,7 @@
 
 
         <nav class="navegacion">
-            <a href="{{ route('back.index') }}"><i class="bi bi-box-arrow-in-right"></i> LogIn</a>
+            <a href="{{ route('front.login') }}"><i class="bi bi-box-arrow-in-right"></i> LogIn</a>
             <a href="{{ route('front.home') }}">Inicio</a>
             <a href="##"><i class="bi bi-geo-alt"></i>Ubicación</a>
         </nav>

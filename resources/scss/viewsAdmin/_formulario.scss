@@ -3,35 +3,19 @@
 
 
 
+.formulario-back {
 
-
-.form {
-    @include m.grid(1, 3rem);
     color: v.$blanco;
     background-color: v.$cafe2;
-    padding: 0 3rem;
+    padding: 2rem 3rem;
     margin: 2rem 0;
 
     
       
 
 
-    h3,h4,
-    p {
-        text-align: center;
-        color: v.$negro;
-        
-    }
 
-      img {
-           
-            max-width: 50rem;
-            min-width: 30rem;
-
-        }
-
-
-    .campo {
+    .campo-back {
         display: flex;
         margin-bottom: 2rem;
         align-items: center;
@@ -63,35 +47,21 @@
     }
 
 
-    .boton {
+    .boton-back {
         @include m.boton(v.$random, v.$blanco);
+        margin: 0;
     }
 
-    @include m.tablet {
-
-        @include m.grid(2, 3rem);
-        align-items: center;
-
-        h4 {
-            text-align: end;
-        }
-
-
-
-    }
 
 }
 
-.form {
+.img-edit{
+    display: flex;
+     justify-content: center;
+    margin-bottom: 2rem;
 
-    .info-reservar {
-        @include m.grid(1, 2rem);
-
-        justify-items: center;
-        padding-bottom: 3rem;
-        
-
+    img{
        
-
+        width: 50%;
     }
 }

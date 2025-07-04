@@ -1,7 +1,7 @@
 <x-app-layout>
     <h1>Reservas</h1>
 
-    <div class=" table-reservas">
+    <div class="table-reservas">
         <table class="contenedor">
             <thead>
                 <tr>
@@ -13,6 +13,7 @@
                    <th>Num Personas</th>
                    <th>Fecha</th>
                    <th>Hora</th>
+                   
                 </tr>
             </thead>
             <tbody>
@@ -26,7 +27,11 @@
                      <td>{{$reserva->numPersonas}}</td>
                       <td>{{$reserva->fecha}}</td>
                        <td>{{$reserva->hora}}</td>
+
+                       
                 </tr>
+
+
              
                 @endforeach
             </tbody>

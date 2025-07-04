@@ -1,5 +1,5 @@
 <x-app-layout>
-    <h1  class="h1-principal" >MENÚ</h1>
+    <h1 class="h1-principal">MENÚ</h1>
 
     <div class="contenedor menu ">
 
@@ -16,23 +16,22 @@
         </div>
 
         <div class="contenedor-2">
-
+            @foreach ($comidas as $comida)
             <div class="sub-menu menu-listado">
                 <div class="menu-detalle">
-                    <h1>Camaron Al Ajo</h1>
-                    <p>Ingredientes:Ingredientes: Ingredientes: Ingredientes: Ingredientes: ajo, limon, camaron, zanahoria camaron, zanahoriacamaron
-                    </p>
+                    <h1>{{$comida->nombre}}</h1>
+                    <p>{{$comida->descripcion}}</p>
                 </div>
                 <div class="menu-precio">
-                    <p>$170</p>
+                    <p>$ {{$comida->precio}}</p>
                 </div>
                 <div class="menu-img">
-                    <img src="{{asset('img/botana_1.jpeg')}}" alt="img">
+                    <img  src="{{ asset('storage/'.$comida->imagen) }}" alt="img">
                 </div>
             </div>
-
+            @endforeach
         </div>
-    
+
 
 
 
@@ -44,10 +43,27 @@
             <div class="i-1">
                 <i class="bi bi-chevron-down "></i>
             </div>
-
         </div>
 
-         <div class="categorias">
+         <div class="contenedor-2">
+            @foreach ($bebidas as $bebida)
+            <div class="sub-menu menu-listado">
+                <div class="menu-detalle">
+                    <h1>{{$bebida->nombre}}</h1>
+                    <p>{{$bebida->descripcion}}</p>
+                </div>
+                <div class="menu-precio">
+                    <p>$ {{$bebida->precio}}</p>
+                </div>
+                <div class="menu-img">
+                    <img src="{{ asset('storage/'.$bebida->imagen) }}" alt="img">
+                </div>
+            </div>
+            @endforeach
+        </div>
+
+
+        <div class="categorias">
             <div class="i-1">
                 <i class="bi bi-journal-check"></i>
             </div>
@@ -58,7 +74,7 @@
 
         </div>
 
-         <div class="categorias">
+        <div class="categorias">
             <div class="i-1">
                 <i class="bi bi-journal-check"></i>
             </div>
@@ -68,72 +84,8 @@
             </div>
 
         </div>
-    </div>
     </div>
 
 
 
 </x-app-layout>
-<!-- 
-        <div class="menu-listado">
-
-            <div class="menudim contenedor2">
-                <div class="sub-menudim">
-                    <h2>Camaron Empanizado</h2>
-                    <p>Ingredientes: ajo, limon, camaron, zanahoria camaron, zanahoriacamaron
-                    </p>
-                </div>
-
-                <div>
-                    <p class="p-size">
-                        $170
-                    </p>
-                </div>
-                <div>
-                    <img src="{{asset('img/botana_1.jpeg')}}" alt="Logo-Capitan">
-                </div>
-            </div>
-        </div> -->
-
-
-<!-- 
-
-    <div class="categorias">
-
-        <div class="aa33">
-            <i class="bi bi-journal-check"></i>
-            <h2>BEBIDAS</h2>
-        </div>
-
-        <div class="aa34">
-            <i class="bi bi-chevron-down"></i>
-        </div>
-    </div>
-
-
-    <div class="categorias">
-
-        <div class="aa33">
-            <i class="bi bi-journal-check"></i>
-            <h2>SHOTS</h2>
-        </div>
-
-        <div class="aa34">
-            <i class="bi bi-chevron-down"></i>
-        </div>
-    </div>
-
-
-    <div class="categorias">
-
-        <div class="aa33">
-            <i class="bi bi-journal-check"></i>
-            <h2>DE TEMPORADA</h2>
-        </div>
-
-        <div class="aa34">
-            <i class="bi bi-chevron-down"></i>
-        </div>
-    </div>
-
- -->

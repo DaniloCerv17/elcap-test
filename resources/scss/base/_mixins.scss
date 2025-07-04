@@ -18,6 +18,13 @@
 }
 
 
+@mixin contenedor {
+    width: 95%;
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+
 @mixin boton($bgColor, $colorTexto) {
     background-color: $bgColor;
     padding: 1.5rem 4rem;
@@ -31,9 +38,13 @@
     transition-property: background-color;
     transition-duration: .3s;
     text-align: center;
-    display: block;
+    display:block;
+    
+
     width: 100%;
     margin: 5rem 0;
+
+    
 
     @include tablet {
         width: auto;
@@ -59,10 +70,7 @@
     text-align: center;
     // display: block;
     max-width: 100%;
-    border-radius: 2rem;
-    
-
-    
+    border-radius: 2rem;    
     margin: 5rem 2rem;
 
     @include tablet {

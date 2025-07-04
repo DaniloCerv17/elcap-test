@@ -1,0 +1,117 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as m;
+
+
+.login-contenedor {
+    width: 50%;
+    max-width: 120rem;
+    margin: 0 auto;
+
+
+
+    .div-login {
+
+        @include m.grid(1, 2rem);
+        justify-items: center;
+        background-color: v.$cafe;
+        margin-top: 3rem;
+
+        p {
+            text-align: center;
+        }
+
+        img {
+            width: 80%;
+        }
+
+        @include m.tablet{
+            img{
+                width: 60%;
+            }
+        }
+
+
+    }
+
+
+    .formulario-front {
+
+        background-color: v.$cafe;
+        margin-bottom: 3rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+
+
+
+        .campo-front {
+
+            display: flex;
+            flex-direction: column;
+            margin-left: 1rem;
+            margin-bottom: 2rem;
+            background-color: v.$cafe;
+
+
+            label {
+                margin-left: 1rem;
+                width: 90%;
+                color: v.$blanco;
+            }
+
+
+            input {
+                width: 90%;
+                border: none;
+                padding: calc(v.$separacion / 4);
+                border-radius: 1rem;
+                background-color: v.$gris;
+            }
+
+
+        }
+
+        @include m.tablet {
+
+            align-items: normal;
+
+            .campo-front {
+                flex-direction: row;
+                
+
+                label {
+                    width: 30%;
+                }
+
+
+                input {
+                    width: 60%;
+                }
+
+            }
+
+
+        }
+
+    }
+
+
+
+
+
+    .boton-front {
+        @include m.boton(v.$random, v.$blanco);
+        width: 100%;
+
+
+
+        @include m.tablet {
+            margin: 2rem;
+
+
+        }
+
+    }
+
+}

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Reservas;
+
 use Illuminate\Http\Request;
 
 class PaginasAdminController extends Controller
@@ -26,5 +27,12 @@ class PaginasAdminController extends Controller
     public function cultura()
     {
         return view('back/cultura');
+    }
+
+   
+
+    public function test()
+    {
+        return view('back/test');
     }
 }

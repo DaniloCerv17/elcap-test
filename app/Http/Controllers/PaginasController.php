@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Producto;
+use App\Models\Publicacion;
 use Illuminate\Http\Request;
 
 class PaginasController extends Controller
@@ -13,7 +15,15 @@ class PaginasController extends Controller
 
   public function menu()
   {
-    return view('front/menu');
+
+
+    $comidas = Producto::porCategoria('comidas');
+    $bebidas = Producto::porCategoria('bebidas');
+
+    return view('front.menu', [
+      'comidas' => $comidas,
+      'bebidas' => $bebidas
+    ]);
   }
 
   public function nosotros()
@@ -26,8 +36,20 @@ class PaginasController extends Controller
     return view('front/reservar');
   }
 
-   public function cultura()
+  public function cultura()
   {
-    return view('front/cultura');
+    $publicaciones = Publicacion::all();
+
+    return view('front.cultura', [
+      'publicaciones' => $publicaciones
+    ]);
+  }
+
+  
+  public function login()
+  {
+    return view('front/login');
   }
 }
+
+
