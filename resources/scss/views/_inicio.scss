@@ -2,6 +2,14 @@
 @use '../base/mixins' as m;
 
 
+.mensaje-exito{
+    background-color: v.$verde;
+    color: v.$blanco;
+    font-weight: v.$bold;
+    text-align: center;
+    
+}
+
 .login-contenido {
 
 
@@ -69,7 +77,7 @@
 
 
         justify-content: center;
-        background-image: url(../../public/img/botana_1.jpeg);
+        background-image: url(../../public/img/botana_3.png);
         background-size: cover;
         background-position: center;
 

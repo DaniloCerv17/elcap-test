@@ -18,5 +18,15 @@ class SubCategoria extends Model
         return $this->hasMany(Producto::class, 'id_sub_categoria');
     }
 
-    
+       public static function porCategoria($nombre)
+    {
+        return self::whereHas('categoria', function ($q) use ($nombre) {
+            $q->where('nombre', $nombre);
+        })->get();
+    }
+
+
+
+
+
 }

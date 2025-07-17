@@ -7,39 +7,64 @@
     <title>El Capitán</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;700;900&display=swap" rel="stylesheet">
-     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css"
-        rel="stylesheet"> 
-    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css"
+        rel="stylesheet">
+
     <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>  -->
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous"> 
      -->
     @vite('resources/scss/app.scss')
-     @vite('resources/js/app.js')
+    @vite('resources/js/app.js')
 </head>
 
 <body>
     <header class="header">
 
-     
 
-            <div class="img-fondo">
-                <div class="img-center">
-                    <img src="{{asset('img/logo_1.svg')}}" alt="Logo-Capitan">
-                </div>
 
-                <div class="texto-img">
-
-                    <h1> Restaurante <span> El Capitán </span> Chichimila</h1>
-                </div>
+        <div class="img-fondo">
+            <div class="img-center">
+                <img src="{{asset('img/logo_1.svg')}}" alt="Logo-Capitan">
             </div>
+
+            <div class="texto-img">
+
+                <h1> Restaurante <span> El Capitán </span> Chichimila</h1>
+            </div>
+        </div>
+
+
+
+        <!-- 
       
-
-
+ -->
 
         <nav class="navegacion">
-            <a href="{{ route('front.login') }}"><i class="bi bi-box-arrow-in-right"></i> LogIn</a>
+
+            <!-- valida si inicia o cierra sesion -->
+            @if(auth()->check())
+            <form method="post" action="{{ route('auth.logout')}}">
+                @csrf
+                <button class="btn-l" type="submit">
+                    <i class="bi bi-box-arrow-in-right"></i> Cerrar Sesión
+                </button>
+
+            </form>
+            @else
+            <a href="{{ route('login') }}"><i class="bi bi-box-arrow-in-right"></i> LogIn</a>
+            @endif
+
+            <!-- valida al inicio de front o back -->
+            @if(!auth()->check())
             <a href="{{ route('front.home') }}">Inicio</a>
+            @else
+            <a href="{{ route('back.index') }}">Inicio</a>
+            @endif
+
+            <!-- valida si esta en el back, desaparece -->
+            @if(!auth()->check())
             <a href="##"><i class="bi bi-geo-alt"></i>Ubicación</a>
+            @endif
         </nav>
 
 

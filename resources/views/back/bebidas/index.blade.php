@@ -1,11 +1,10 @@
 <x-app-layout>
-    <h1>Administrar Comidas</h1>
-
+    <h1>Administrar Bebidas</h1>
 
     <div class="contenedor botones-index">
        
             <a class="btn-comida" href="{{route('back.index')}}"> Regresar</a>
-             <a class="btn-comida" href="{{route('comidas.create')}}"> Nuevo Producto</a>
+             <a class="btn-comida" href="{{route('bebidas.create')}}"> Nuevo Producto</a>
             
 
     </div>
@@ -25,37 +24,32 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($productos as $producto)
+                @foreach ($bebidas as $bebida)
                 <tr>
-                    <td>{{$producto->id}}</td>
-                    <td>{{$producto->nombre}}</td>
-                    <td>${{$producto->precio}}</td>
-                    <td>{{$producto->descripcion}}</td>
+                    <td>{{$bebida->id}}</td>
+                    <td>{{$bebida->nombre}}</td>
+                    <td>${{$bebida->precio}}</td>
+                    <td>{{$bebida->descripcion}}</td>
                       <td>
-                        @if ($producto->imagen)
+                        @if ($bebida->imagen)
 
-                        <img src="{{ asset('storage/'.$producto->imagen) }}" alt="" style="width: 100px; height: auto;">
+                        <img src="{{ asset('storage/'.$bebida->imagen) }}" alt="" style="width: 100px; height: auto;">
                         @endif
                       </td>
 
-                    <td>{{$producto->subcategoria->nombre}}</td>
+                    <td>{{$bebida->subcategoria->nombre}}</td>
                     <td>
-                        <a class="icono-conf" href="{{ route('comidas.edit', $producto->slug) }}"><i class="bi bi-pencil-square"></i></a>
-                        <form action="{{ route('comidas.destroy', $producto->slug) }}" method="POST" id="form-eliminar-{{ $producto->id }}" style="display: none;">
+                        <a class="icono-conf" href="{{ route('bebidas.edit', $bebida->slug) }}"><i class="bi bi-pencil-square"></i></a>
+                        <form action="{{ route('bebidas.destroy', $bebida->slug) }}" method="POST" id="form-eliminar-{{ $bebida->id }}" style="display: none;">
                             @csrf
                             @method('DELETE')
                         </form>
 
-                        <a class="icono-conf eliminar-producto" onclick="event.preventDefault(); document.getElementById('form-eliminar-{{ $producto->id }}').submit();">
+                        <a class="icono-conf eliminar-producto" onclick="event.preventDefault(); document.getElementById('form-eliminar-{{ $bebida->id }}').submit();">
                             <i class="bi bi-trash"></i>
                         </a>
 
-                        <!-- <a class="icono-conf" href="{{ route('back.cultura') }}"><i class="bi bi-trash"></i></a> -->
-
-                        <!-- <form action="{{ route('comidas.destroy', $producto->id) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit">Eliminar Post</button> -->
+                      
                         </form>
                     </td>
                 </tr>

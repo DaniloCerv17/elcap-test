@@ -2,12 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ReservaCreatedMail;
 use App\Models\Reservas;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class ReservasController extends Controller
 {
 
+    public function index(Reservas $reserva)
+    {
+
+        return view('front/confirmar-reserva', [
+            'reserva' => $reserva
+        ]);
+    }
 
 
 
@@ -45,7 +54,7 @@ class ReservasController extends Controller
             'hora.required' => 'coloque una hora',
             'hora.after_or_equal' => 'El horario es de 12pm a 5pm',
             'hora.before_or_equal' => 'El horario es de 12pm a 5pm',
-            
+
 
 
         ]);
@@ -61,6 +70,9 @@ class ReservasController extends Controller
 
         $reserva->save();
 
-        return redirect('/');
+        Mail::to('prueba@prueba.com')->send(new ReservaCreatedMail($reserva));
+
+
+        return redirect('/')->with('mensajes', '¡Reservado Correctamente!');
     }
 }

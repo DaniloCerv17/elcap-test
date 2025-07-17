@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Models\Producto;
 use App\Models\SubCategoria;
 use Illuminate\Http\Request;
@@ -9,21 +10,19 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 
 
-use function Laravel\Prompts\select;
 
-class ComidaController extends Controller
+class BebidaController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $productos = Producto::porCategoria('comidas');
 
-        //$productos = Producto::with('subcategoria')->get();
+        $bebidas = Producto::porCategoria('bebidas');
 
-        return view('back.comidas.index', [
-            'productos' => $productos
+        return view('back.bebidas.index', [
+            'bebidas' => $bebidas
         ]);
         //     return view('back/comidas');
         // }
@@ -33,10 +32,10 @@ class ComidaController extends Controller
      */
     public function create()
     {
-        $SubCategorias = SubCategoria::porCategoria('comidas');
+        $SubCategorias = SubCategoria::porCategoria('bebidas');
 
         // $subCategorias = SubCategoria::all();
-        return view('back.comidas.create', [
+        return view('back.bebidas.create', [
             'SubCategorias' => $SubCategorias
         ]);
     }
@@ -94,7 +93,7 @@ class ComidaController extends Controller
         $producto->save();
 
 
-        return redirect('back/comidas');
+        return redirect('back/bebidas');
     }
 
     /**
@@ -108,12 +107,13 @@ class ComidaController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Producto $comida)
+    public function edit(Producto $bebida)
     {
 
-        $SubCategorias = SubCategoria::porCategoria('comidas');
-        return view('back.comidas.edit', [
-            'comida' => $comida,
+        $SubCategorias = SubCategoria::porCategoria('bebidas');
+
+        return view('back.bebidas.edit', [
+            'bebida' => $bebida,
             'SubCategorias' => $SubCategorias,
         ]);
     }
@@ -123,79 +123,79 @@ class ComidaController extends Controller
      */
 
 
-public function update(Request $request, Producto $comida) 
-{
-    // Validación
-    $request->validate([
-        'nombre' => 'required|min:5|max:30',
-        'precio' => 'required|numeric|max:99999',
-        'descripcion' => 'required|max:200',
-        'id_sub_categoria' => 'required',
-        'imagen' => 'nullable|image|mimes:png,jpg|max:2048',
-    ], [
-        'nombre.required' => 'Coloque un Nombre',
-        'nombre.min' => 'Coloque mínimo 5 caracteres',
-        'nombre.max' => 'Coloque menos de 30 caracteres',
-        'precio.required' => 'Coloque un precio',
-        'precio.numeric' => 'Coloque un número, no letra',
-        'precio.max' => 'Coloque un precio no mayor a 99999',
-        'descripcion.required' => 'Coloque una descripción',
-        'descripcion.max' => 'Coloque máximo 200 caracteres',
-        'id_sub_categoria.required' => 'Seleccione una categoría',
-        'imagen.mimes' => 'Debe ser PNG o JPG',
-        'imagen.image' => 'Debe ser una imagen',
-    ]);
+    public function update(Request $request, Producto $bebida)
+    {
+        // Validación
+        $request->validate([
+            'nombre' => 'required|min:5|max:30',
+            'precio' => 'required|numeric|max:99999',
+            'descripcion' => 'required|max:200',
+            'id_sub_categoria' => 'required',
+            'imagen' => 'nullable|image|mimes:png,jpg|max:2048',
+        ], [
+            'nombre.required' => 'Coloque un Nombre',
+            'nombre.min' => 'Coloque mínimo 5 caracteres',
+            'nombre.max' => 'Coloque menos de 30 caracteres',
+            'precio.required' => 'Coloque un precio',
+            'precio.numeric' => 'Coloque un número, no letra',
+            'precio.max' => 'Coloque un precio no mayor a 99999',
+            'descripcion.required' => 'Coloque una descripción',
+            'descripcion.max' => 'Coloque máximo 200 caracteres',
+            'id_sub_categoria.required' => 'Seleccione una categoría',
+            'imagen.mimes' => 'Debe ser PNG o JPG',
+            'imagen.image' => 'Debe ser una imagen',
+        ]);
 
-    // Actualizar solo los campos básicos usando $fillable y only
-    $comida->update($request->only(['nombre', 'precio', 'descripcion', 'id_sub_categoria']));
+        // Actualizar solo los campos básicos usando $fillable y only
+        $bebida->update($request->only(['nombre', 'precio', 'descripcion', 'id_sub_categoria']));
 
-    // Reemplazar imagen si subieron una nueva
-    if ($request->hasFile('imagen')) {
-        // Eliminar imagen anterior si existe
-        if ($comida->imagen && Storage::disk('public')->exists($comida->imagen)) {
-            Storage::disk('public')->delete($comida->imagen);
+        // Reemplazar imagen si subieron una nueva
+        if ($request->hasFile('imagen')) {
+            // Eliminar imagen anterior si existe
+            if ($bebida->imagen && Storage::disk('public')->exists($bebida->imagen)) {
+                Storage::disk('public')->delete($bebida->imagen);
+            }
+
+            // Guardar la nueva imagen y asignar ruta al modelo
+            $bebida->imagen = $request->file('imagen')->store('photos', 'public');
         }
 
-        // Guardar la nueva imagen y asignar ruta al modelo
-        $comida->imagen = $request->file('imagen')->store('photos', 'public');
+        // Regenerar slug y verificar duplicados (excepto el mismo producto)
+        $slug = Str::slug($request->nombre);
+        $originalSlug = $slug;
+        $contador = 1;
+
+        while (Producto::where('slug', $slug)->where('id', '!=', $bebida->id)->exists()) {
+            $slug = $originalSlug . '-' . $contador;
+            $contador++;
+        }
+
+        $bebida->slug = $slug;
+
+        // Guardar cambios
+        $bebida->save();
+
+        return redirect('back/bebidas');
     }
 
-    // Regenerar slug y verificar duplicados (excepto el mismo producto)
-    $slug = Str::slug($request->nombre);
-    $originalSlug = $slug;
-    $contador = 1;
 
-    while (Producto::where('slug', $slug)->where('id', '!=', $comida->id)->exists()) {
-        $slug = $originalSlug . '-' . $contador;
-        $contador++;
-    }
-
-    $comida->slug = $slug;
-
-    // Guardar cambios
-    $comida->save();
-
-    return redirect('back/comidas');
-}
-
-    
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Producto $comida)
+    public function destroy(Producto $bebida)
     {
 
 
 
         // Verificar si tiene imagen y eliminarla del storage
-        if ($comida->imagen && Storage::disk('public')->exists($comida->imagen)) {
-            Storage::disk('public')->delete($comida->imagen);
+        if ($bebida->imagen && Storage::disk('public')->exists($bebida->imagen)) {
+            Storage::disk('public')->delete($bebida->imagen);
         }
 
-        // Eliminar el comida de la base de datos
-        $comida->delete();
+        // Eliminar el bebida de la base de datos
+        $bebida->delete();
 
-        return redirect('back/comidas');
+        return redirect('back/bebidas');
     }
 }

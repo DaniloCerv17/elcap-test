@@ -19,10 +19,14 @@ class PaginasController extends Controller
 
     $comidas = Producto::porCategoria('comidas');
     $bebidas = Producto::porCategoria('bebidas');
+    $shots = Producto::porCategoria('shots');
+    $temporadas = Producto::porCategoria('temporada');
 
     return view('front.menu', [
       'comidas' => $comidas,
-      'bebidas' => $bebidas
+      'bebidas' => $bebidas,
+      'shots' => $shots,
+      'temporadas' => $temporadas,
     ]);
   }
 
@@ -45,11 +49,9 @@ class PaginasController extends Controller
     ]);
   }
 
-  
-  public function login()
-  {
-    return view('front/login');
-  }
+
+  // public function login()
+  // {
+  //   return view('front/login');
+  // }
 }
-
-

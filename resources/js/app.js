@@ -44,19 +44,19 @@ function mostrarImagen(i) {
     modal.onclick = cerrarModal
 
     //boton cerrarmodal
-     const cerrarModalBtn = document.createElement('BUTTON')
-     cerrarModalBtn.textContent = 'X'
-     cerrarModalBtn.classList.add('btn-cerrar')
-     cerrarModalBtn.onclick = cerrarModal
+    const cerrarModalBtn = document.createElement('BUTTON')
+    cerrarModalBtn.textContent = 'X'
+    cerrarModalBtn.classList.add('btn-cerrar')
+    cerrarModalBtn.onclick = cerrarModal
 
- 
-  
+
+
     modal.appendChild(imagen)
-  modal.appendChild(cerrarModalBtn)
+    modal.appendChild(cerrarModalBtn)
 
 
 
-    
+
     //Agregar al HTML
     const body = document.querySelector('body')
     body.classList.add('overflow-hidden')
@@ -76,3 +76,51 @@ function cerrarModal() {
 
 
 }
+function toggleMenu(elemento) {
+    const submenu = elemento.nextElementSibling;
+
+    if (!submenu) return;
+
+    const estilo = window.getComputedStyle(submenu);
+
+    if (estilo.display === 'none') {
+        submenu.style.display = 'block';
+    } else {
+        submenu.style.display = 'none';
+    }
+}
+
+window.toggleMenu = toggleMenu;
+
+window.toggleMenu = toggleMenu;
+
+
+// function toggleComida() {
+//     const elementos = document.getElementsByClassName('sub-menu');
+
+//     for (let i = 0; i < elementos.length; i++) {
+//         const estilo = window.getComputedStyle(elementos[i]);
+//         if (estilo.display === 'none') {
+//             elementos[i].style.display = 'block';
+//         } else {
+//             elementos[i].style.display = 'none';
+//         }
+//     }
+// }
+
+// function toggleBebida() {
+//     const elementos = document.getElementsByClassName('sub-menu2');
+
+//     for (let i = 0; i < elementos.length; i++) {
+//         const estilo = window.getComputedStyle(elementos[i]);
+//         if (estilo.display === 'none') {
+//             elementos[i].style.display = 'block';
+//         } else {
+//             elementos[i].style.display = 'none';
+//         }
+//     }
+// }
+
+
+// window.toggleComida = toggleComida;
+// window.toggleBebida = toggleBebida;

@@ -10,16 +10,16 @@
         </div>
 
 
-        <form class="formulario-front" action="{{ route('reserva.store')}}" method="POST">
+        <form class="formulario-front" action="{{ route('login')}}" method="POST">
             @csrf
             <div class="campo-front">
                 <label for="nombres">Usuario</label>
-                <input type="text" name="nombres" id="nombres" placeholder="Tu Usuario" value="{{ old('nombres')}}">
+                <input type="text" name="email" id="nombres" placeholder="Tu Usuario" value="{{ old('nombres')}}">
             </div>
 
             <div class="campo-front">
                 <label for="password">Password</label>
-                <input type="text" name="password" id="password" placeholder="Tu password" value="{{ old('password')}}">
+                <input type="password" name="password" id="password" placeholder="Tu password" value="{{ old('password')}}">
             </div>
 
 

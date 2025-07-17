@@ -8,6 +8,7 @@
 }
 
 .categorias {
+    margin-bottom: 2rem;
     background-color: v.$blanco;
     display: grid;
     gap: 2rem;
@@ -48,82 +49,190 @@
             font-weight: 500;
         }
     }
-}
 
-
-
-
-
-
-
-.menu-listado {
-    overflow-x: auto;
-    @include m.grid(3, 1rem);
-    align-items: center;
-    justify-items: center;
-    background-color: v.$blanco;
-    border: 1px solid v.$negro;
-    padding: 1rem;
-    border-radius: 8px;
-
-    @include m.tablet {
-        .menu-detalle {
-
-            h1 {
-                font-size: 4rem;
-
-            }
-
-            p {
-                font-size: 2rem;
-
-            }
-        }
-
+    &:hover{
+        cursor: pointer;
     }
 }
+
+
+
+
+
+
+
 
 
 .sub-menu {
-    margin: 2rem 0;
+    display: none;
 
-    .menu-detalle {
-        margin: 0 2rem;
-        @include m.grid(1, 1rem);
 
-        h1,
-        p {
-            margin: 0;
+    .menu-listado {
+
+        overflow-x: auto;
+        border: 1px solid v.$negro;
+        padding: 1rem;
+        border-radius: 8px;
+        background-color: v.$blanco;
+        margin: 2rem;
+        @include m.grid(3, 3rem);
+        align-items: center;
+
+        .menu-detalle {
+
+            h1,
+            p {
+                text-align: center;
+                color: v.$negro;
+            }
+
+        }
+
+        .menu-precio {
+            p {
+                font-size: 4rem;
+                color: v.$negro;
+                text-align: center;
+            }
+        }
+
+        .menu-img {
+            margin-right: 3rem;
+            min-width: 30rem; // previene que se encoja demasiado
             text-align: center;
-            font-size: 2rem;
-            color: v.$negro;
+
+            img {
+                width: 100%;
+                max-width: 40rem;
+                height: auto;
+            }
+        }
+
+
+
+
+
+    }
+
+
+}
+
+
+
+
+.sub-menu2 {
+    display: none;
+
+
+    .menu-listado {
+
+        overflow-x: auto;
+        border: 1px solid v.$negro;
+        padding: 1rem;
+        border-radius: 8px;
+        background-color: v.$blanco;
+        margin: 2rem;
+        @include m.grid(3, 3rem);
+        align-items: center;
+
+        .menu-detalle {
+
+            h1,
+            p {
+                text-align: center;
+                color: v.$negro;
+            }
 
         }
 
-        h1 {
-            font-size: 3rem;
+        .menu-precio {
+            p {
+                font-size: 4rem;
+                color: v.$negro;
+                text-align: center;
+            }
+        }
+
+        .menu-img {
+            margin-right: 3rem;
+            min-width: 30rem; // previene que se encoja demasiado
+            text-align: center;
+
+            img {
+                width: 100%;
+                max-width: 40rem;
+                height: auto;
+            }
         }
 
 
 
-    }
-}
 
-.menu-precio {
-
-    p {
-        font-size: 4rem;
-        margin: 0 2rem;
-        color: v.$negro;
-    }
-}
-
-.menu-img {
-    margin: 0 2rem;
-
-    img {
-        min-width: 40rem;
-        max-width: 60rem;
 
     }
+
+
 }
+
+//         @include m.tablet {
+
+//             .menu-detalle {
+
+
+//                 h1 {
+//                     font-size: 4rem;
+
+//                 }
+
+//                 p {
+//                     font-size: 2rem;
+
+//                 }
+
+//                  .menu-precio {
+
+//             p {
+//                 font-size: 4rem;
+//                 margin: 0 2rem;
+//                 color: v.$negro;
+//             }
+//         }
+
+//         .menu-img {
+
+
+//             img {
+//                 height: 30%;
+
+//             }
+//         }
+//             }
+
+//         }
+
+
+//     }
+
+
+
+//     .menu-detalle {
+//         margin: 0 2rem;
+//         @include m.grid(1, 1rem);
+
+//         h1,
+//         p {
+//             margin: 0;
+//             text-align: center;
+//             font-size: 2rem;
+//             color: v.$negro;
+
+//         }
+
+//         h1 {
+//             font-size: 3rem;
+//         }
+
+
+
+//     }
+// }

@@ -1,6 +1,11 @@
 @use '../base/variables' as v;
 @use '../base/mixins' as m;
 
+.botones-index{
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+}
 
 
 .admin-categorias {

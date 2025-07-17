@@ -5,25 +5,60 @@
 .cultura-div {
 
     @include m.grid(1, 1rem);
+
     margin-bottom: 3rem;
 
-    h1, p{
+    h1,
+    p {
         text-align: center;
         color: v.$negro;
     }
 
-   
+
 
     .cultura-contenido {
+      
+        @include m.grid(1, 1rem);
+        justify-items: center;
         background-color: v.$cafe2;
         margin-top: 2rem;
         border: 1px solid v.$cafe2;
         border-radius: 8px;
+        align-items: center;
+
+        h1{
+              margin-top: 3rem;
+        }
+        img {
+            width: 100%;
+            height: auto;
+            min-width: 40rem;
+            
+
+            @include m.tablet
+        {
+           min-width: 50rem;
+        }
+        }
 
 
-        // img{
-        //     max-width: 80%;
-        // }
+
+
+        .cultura-fecha {
+            @include m.grid(1, 1rem);
+
+            p{
+                color: v.$negro;
+                font-weight: 700;
+                font-size: 2rem;
+            }
+        
+
+            @include m.tablet {
+                @include m.grid(2, 1rem);
+            }
+        }
+
 
 
     }
@@ -33,6 +68,7 @@
 
     @include m.tablet {
         @include m.grid(2, 1rem);
+
     }
 
 }

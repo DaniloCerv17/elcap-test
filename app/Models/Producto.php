@@ -40,6 +40,9 @@ class Producto extends Model
         })->get();
     }
 
+
+
+
     
     public function getRouteKeyName(){
         return 'slug';
