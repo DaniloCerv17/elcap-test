@@ -18,10 +18,14 @@ class Producto extends Model
 
         'descripcion',
 
+        // 'imagen',
+
+        'slug',
+
         'id_sub_categoria',
 
-       
-    
+
+
 
 
     ];
@@ -43,8 +47,9 @@ class Producto extends Model
 
 
 
-    
-    public function getRouteKeyName(){
+
+    public function getRouteKeyName()
+    {
         return 'slug';
     }
 }

@@ -8,6 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class SubCategoria extends Model
 {
+     protected $fillable = [
+
+        'nombre',
+
+        'slug',
+
+        'id_categoria',
+       
+    
+
+
+    ];
     protected $table = 'sub_categorias';
     public function categoria()
     {
